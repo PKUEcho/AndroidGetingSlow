@@ -1,0 +1,4 @@
+[random_r]
+rw=randread
+size=1024m
+directory=/sdcard/

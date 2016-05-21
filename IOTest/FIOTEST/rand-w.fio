@@ -1,0 +1,4 @@
+[random_w]
+rw=randwrite
+size=1024m
+directory=/sdcard/

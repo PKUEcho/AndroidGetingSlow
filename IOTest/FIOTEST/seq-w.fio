@@ -1,0 +1,4 @@
+[sequential_w]
+rw=write
+size=1024m
+directory=/sdcard/

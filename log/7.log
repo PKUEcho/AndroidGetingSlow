@@ -1,0 +1,38 @@
+--------- beginning of main
+--------- beginning of system
+I/ActivityManager(  980): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.example.cpuloadgenerator/.MainActivity (has extras)} from uid 10035 on display 0
+I/ActivityManager(  980): Start proc com.example.cpuloadgenerator for activity com.example.cpuloadgenerator/.MainActivity: pid=3009 uid=10059 gids={50059, 9997, 1028, 1015} abi=armeabi-v7a
+W/ActivityManager(  980): Unable to start service Intent { cmp=sogou.mobile.explorer/.ActivateBrowserService } U=0: not found
+I/ActivityManager(  980): Displayed com.example.cpuloadgenerator/.MainActivity: +974ms
+I/ActivityManager(  980): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10200000 cmp=com.android.launcher3/.Launcher} from uid 1000 on display 0
+I/ActivityManager(  980): START u0 {flg=0x10000000 cmp=com.android.mms/.ui.ConversationList} from uid 0 on display 0
+I/ActivityManager(  980): Displayed com.android.mms/.ui.ConversationList: +1s611ms
+I/ActivityManager(  980): Force stopping com.android.mms appid=10008 user=0: from pid 3097
+I/ActivityManager(  980): Killing 1987:com.android.mms/u0a8 (adj 0): stop com.android.mms
+W/ActivityManager(  980): Force removing ActivityRecord{250dae97 u0 com.android.mms/.ui.ConversationList t762}: app died, no saved state
+I/ActivityManager(  980): START u0 {flg=0x10000000 cmp=com.android.mms/.ui.ConversationList} from uid 0 on display 0
+I/ActivityManager(  980): Start proc com.android.mms for activity com.android.mms/.ui.ConversationList: pid=3129 uid=10008 gids={50008, 9997, 3003, 1028, 1015} abi=armeabi-v7a
+W/ActivityManager(  980): Launch timeout has expired, giving up wake lock!
+I/ActivityManager(  980): Force stopping com.android.mms appid=10008 user=0: from pid 3164
+I/ActivityManager(  980): Killing 3129:com.android.mms/u0a8 (adj 0): stop com.android.mms
+W/ActivityManager(  980): Scheduling restart of crashed service com.android.mms/.transaction.SmsReceiverService in 18880ms
+W/ActivityManager(  980): Force removing ActivityRecord{3a60b113 u0 com.android.mms/.ui.ConversationList t763}: app died, no saved state
+I/ActivityManager(  980):   Force stopping service ServiceRecord{25c32d4f u0 com.android.mms/.transaction.SmsReceiverService}
+I/ActivityManager(  980): START u0 {flg=0x10000000 cmp=com.android.mms/.ui.ConversationList} from uid 0 on display 0
+I/ActivityManager(  980): Start proc com.android.mms for activity com.android.mms/.ui.ConversationList: pid=3196 uid=10008 gids={50008, 9997, 3003, 1028, 1015} abi=armeabi-v7a
+I/ActivityManager(  980): Displayed com.android.mms/.ui.ConversationList: +3s397ms (total +18s643ms)
+I/ActivityManager(  980): Force stopping com.android.mms appid=10008 user=0: from pid 3238
+I/ActivityManager(  980): Killing 3196:com.android.mms/u0a8 (adj 0): stop com.android.mms
+W/ActivityManager(  980): Force removing ActivityRecord{1e400761 u0 com.android.mms/.ui.ConversationList t764}: app died, no saved state
+W/ActivityManager(  980): Spurious death for ProcessRecord{299bd96c 3196:com.android.mms/u0a8}, curProc for 3196: null
+I/ActivityManager(  980): START u0 {flg=0x10000000 cmp=com.android.mms/.ui.ConversationList} from uid 0 on display 0
+I/ActivityManager(  980): Start proc com.android.mms for activity com.android.mms/.ui.ConversationList: pid=3273 uid=10008 gids={50008, 9997, 3003, 1028, 1015} abi=armeabi-v7a
+W/ActivityManager(  980): Launch timeout has expired, giving up wake lock!
+I/ActivityManager(  980): Force stopping com.android.mms appid=10008 user=0: from pid 3308
+I/ActivityManager(  980): Killing 3273:com.android.mms/u0a8 (adj 0): stop com.android.mms
+W/ActivityManager(  980): Scheduling restart of crashed service com.android.mms/.transaction.SmsReceiverService in 19748ms
+W/ActivityManager(  980): Force removing ActivityRecord{2f9c313b u0 com.android.mms/.ui.ConversationList t765}: app died, no saved state
+I/ActivityManager(  980):   Force stopping service ServiceRecord{352cfbf7 u0 com.android.mms/.transaction.SmsReceiverService}
+I/ActivityManager(  980): START u0 {flg=0x10000000 cmp=com.android.mms/.ui.ConversationList} from uid 0 on display 0
+I/ActivityManager(  980): Start proc com.android.mms for activity com.android.mms/.ui.ConversationList: pid=3339 uid=10008 gids={50008, 9997, 3003, 1028, 1015} abi=armeabi-v7a
+I/ActivityManager(  980): Displayed com.android.mms/.ui.ConversationList: +1s678ms (total +17s354ms)

@@ -1,0 +1,27 @@
+random_r: (g=0): rw=randread, bs=4K-4K/4K-4K/4K-4K, ioengine=sync, iodepth=1
+fio-2.1.8-80-g890b
+Starting 1 process
+
+random_r: (groupid=0, jobs=1): err= 0: pid=8743: Sun May 15 18:05:43 2016
+  read : io=1024.0MB, bw=9907.8KB/s, iops=2476, runt=105834msec
+    clat (usec): min=4, max=43529, avg=392.49, stdev=1117.73
+     lat (usec): min=5, max=43530, avg=393.76, stdev=1117.77
+    clat percentiles (usec):
+     |  1.00th=[    7],  5.00th=[    7], 10.00th=[    8], 20.00th=[    9],
+     | 30.00th=[    9], 40.00th=[   11], 50.00th=[   74], 60.00th=[   95],
+     | 70.00th=[  129], 80.00th=[  330], 90.00th=[ 1012], 95.00th=[ 2024],
+     | 99.00th=[ 5664], 99.50th=[ 7392], 99.90th=[11456], 99.95th=[13888],
+     | 99.99th=[20096]
+    bw (KB  /s): min= 5681, max=21005, per=99.90%, avg=9896.70, stdev=2821.35
+    lat (usec) : 10=30.48%, 20=13.09%, 50=0.45%, 100=16.95%, 250=17.13%
+    lat (usec) : 500=6.25%, 750=3.24%, 1000=2.32%
+    lat (msec) : 2=5.03%, 4=3.05%, 10=1.84%, 20=0.16%, 50=0.01%
+  cpu          : usr=2.47%, sys=9.70%, ctx=206139, majf=0, minf=28
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=262144/w=0/d=0, short=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=1024.0MB, aggrb=9907KB/s, minb=9907KB/s, maxb=9907KB/s, mint=105834msec, maxt=105834msec

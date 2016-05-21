@@ -1,0 +1,4 @@
+[sequential_r]
+rw=read
+size=1024m
+directory=/sdcard/
