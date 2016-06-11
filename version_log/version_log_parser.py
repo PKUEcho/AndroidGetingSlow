@@ -32,6 +32,13 @@ def apk2version(apk):
         apk = apk[:-4]
     return version_map[apk][1]
 
+interested_activity = {
+    'com.kugou.android': ['MediaActivity', 'SplashActivity'],
+    'com.youdao.dict': ['DictSplashActivity', 'MainActivity'],
+    'com.halfbrick.fruitninja': ['MortarGameActivity'],
+    'com.baidu.video': ['VideoActivity', 'WelcomActivity'],
+    'com.estrongs.android.pop': ['FileExplorerActivity'],
+}
 # perf format:
 # {package_name/activity: {apk_version: {android_version1: {[l1, l2, ...]}}}}
 perf = {}
@@ -52,6 +59,8 @@ for log in raw_logs:
                 del items[-2]
             package = (items[-2][:-1]).split('/')[0]
             activity = (items[-2][:-1]).split('.')[-1]
+            if package not in interested_activity or activity not in interested_activity[package]:
+                continue
             latency =  parseLatency(items[-1])
             # store in perf
             key = package + '/' + activity
@@ -73,28 +82,14 @@ for activity in perf:
     sort_perf = [(key, cur_perf[key]) for key in keys]
     for item in sort_perf:
         outFile.write(str(item[0]))
-
-activity_name = {
-    'com.kugou.android': ['MediaActivity', 'SplashActivity'],
-    'com.youdao.dict': ['DictSplashActivity', 'MainActivity'],
-    'com.halfbrick.fruitninja': ['MortarGameActivity'],
-    'com.baidu.video': ['VideoActivity', 'WelcomActivity'],
-    'com.estrongs.android.pop': ['FileExplorerActivity'],
-}
-
-acts = activity_name[package_name]
-outFile = open('parse_result/' + package_name, 'w+')
-outFile.write('version\t%s\n' % ('\t'.join(acts)))
-
-for item in sort_perf:
-    outFile.write(str(item[0]))
-    for act in acts:
-        if act in item[1]:
-            narray = np.array(item[1][act])
-            outFile.write('\t' + str(np.median(narray)))
-        else:
-            outFile.write('\t0')
-    outFile.write('\n')
+        for av in interested_android_versions:
+            if av not in item[1]:
+                data = 0
+            else:
+                narray = np.array(item[1][av])
+                data = np.median(narray)
+            outFile.write('\t' + data)
+        outFile.write('\n')
 
 outFile.close()
 
