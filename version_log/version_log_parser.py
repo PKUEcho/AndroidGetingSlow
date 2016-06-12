@@ -30,6 +30,8 @@ version_map = read_meta_file()
 def apk2version(apk):
     if apk.find('apk') != -1:
         apk = apk[:-4]
+    if apk not in version_map:
+        return None
     return version_map[apk][1]
 
 interested_activity = {
@@ -51,7 +53,10 @@ for log in raw_logs:
         if line.find('Continuing with installation') != -1:
             items = line.strip().split(' ')
             apk_name = items[-1].strip().split('/')[-1]
-            apk_version = int(apk2version(apk_name))
+            apk_version = apk2version(apk_name)
+            if apk_version == None:
+                continue
+            apk_version = int(apk_version)
         if line.find('Displayed') != -1:
             items = line.strip().split(' ')
             if line.find('(total') != -1:
@@ -72,24 +77,26 @@ for log in raw_logs:
                 perf[key][apk_version][android_version] = []
             perf[key][apk_version][android_version].append(latency)
 
-interested_android_versions = ['5.1.1', '6.0.0']
+interested_android_versions = ['5.1.1', '6.0.1', '7.0.0']
 for activity in perf:
     outFile = open('parse_result/' + activity.replace('/', '-'), 'w+')
     outFile.write('version\t5.1.1\t6.0.0\t7.0.0\n')
     cur_perf = perf[activity]
     keys = cur_perf.keys()
     keys.sort()
-    sort_perf = [(key, cur_perf[key]) for key in keys]
+    sort_perf = [(k, cur_perf[k]) for k in keys]
     for item in sort_perf:
-        outFile.write(str(item[0]))
+        outFile.write(str(item[0]) + '\t')
+        data = []
         for av in interested_android_versions:
             if av not in item[1]:
-                data = 0
+                data.append('0')
             else:
                 narray = np.array(item[1][av])
-                data = np.median(narray)
-            outFile.write('\t' + data)
-        outFile.write('\n')
+                data.append(str(np.median(narray)))
+        # if '0' in data:
+        #    continue
+        outFile.write('\t'.join(data) + '\n')
 
 outFile.close()
 
